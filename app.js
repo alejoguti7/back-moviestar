@@ -28,7 +28,7 @@ app.use(auth);
 //app.use('/empleados', empleadosRouter);
 app.use("/peliculas", peliculasRouter);
 
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
   res.sendStatus(200);
 });
 
