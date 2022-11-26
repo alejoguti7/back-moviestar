@@ -8,7 +8,7 @@ exports.mongoConnect = async () => {
   const mongoStringConnection =
     "mongodb+srv://admin:admin@cluster0.oytyuar.mongodb.net/moviestar";
   try {
-    await moongose.connect(mongoStringConnection);
+    await mongoose.connect(mongoStringConnection);
     console.log("dbonline");
   } catch (error) {
     console.log(error);
