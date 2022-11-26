@@ -28,6 +28,10 @@ app.use(auth);
 //app.use('/empleados', empleadosRouter);
 app.use("/peliculas", peliculasRouter);
 
+app.use("/", (req, res) => {
+  res.sendStatus(200);
+});
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
