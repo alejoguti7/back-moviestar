@@ -1,13 +1,24 @@
-const mongoose = require ("mongoose");
+const mongoose = require("mongoose");
 const host = "localhost";
 const port = "27017";
 const db = "moviestar";
 
-exports.mongoConnect = () => {
-    const mongoStringConnection = `mongodb://${host}:${port}/${db}`;
-
-    mongoose.connect(mongoStringConnection);
-    mongoose.Promise = global.Promise;
-    const dbConnection = mongoose.connection;
-    dbConnection.on("error", console.error.bind(console,"Mongodb connection error"))
-}
+exports.mongoConnect = async () => {
+  // const mongoStringConnection = `mongodb://${host}:${port}/${db}`;
+  const mongoStringConnection =
+    "mongodb+srv://admin:admin@cluster0.oytyuar.mongodb.net/moviestar";
+  try {
+    await moongose.connect(mongoStringConnection);
+    console.log("dbonline");
+  } catch (error) {
+    console.log(error);
+    throw new Error("DB not connected");
+  }
+  // mongoose.connect(mongoStringConnection);
+  // mongoose.Promise = global.Promise;
+  // const dbConnection = mongoose.connection;
+  // dbConnection.on(
+  //   "error",
+  //   console.error.bind(console, "Mongodb connection error")
+  // );
+};
